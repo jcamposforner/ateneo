@@ -1,0 +1,5 @@
+home_page:
+  path: /{id}
+  controller: App\UI\Http\Rest\Controller\HomeController
+  methods: [GET]
+  defaults: { id: 1 }

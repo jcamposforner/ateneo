@@ -1,0 +1,10 @@
+User:
+  type: entity
+  fields:
+    id:
+      type: integer
+    text:
+      length: 140
+    postedAt:
+      type: datetime
+      column: posted_at
