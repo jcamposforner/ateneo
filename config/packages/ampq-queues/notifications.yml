@@ -1,0 +1,4 @@
+amqp_email_notifications_low_prioritity:
+  dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+  options:
+    queue_name: low
