@@ -4,29 +4,22 @@ declare(strict_types=1);
 
 namespace App\UI\Http\Rest\Controller;
 
+use App\Backoffice\User\Application\Command\CreateUserCommand;
 use App\Backoffice\User\Domain\User;
+use App\Shared\Infrastructure\Uuid\UuidGenerator;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use FOS\UserBundle\Model\UserManager;
 use FOS\UserBundle\Model\UserManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Constraints as Assert;
 
 final class RegisterController
 {
-    /**
-     * @var UserManager
-     */
-    private $userManager;
-
-    public function __construct(UserManagerInterface $userManager)
-    {
-        $this->userManager = $userManager;
-    }
-
-    public function __invoke(Request $request)
+    public function __invoke(Request $request, UserManagerInterface $userManager, MessageBusInterface $messageBus, UuidGenerator $uuidGenerator)
     {
         $data = json_decode($request->getContent(), true);
 
@@ -39,16 +32,11 @@ final class RegisterController
         $userName = $data['username'];
         $password = $data['password'];
         $email    = $data['email'];
+        $uuid     = $uuidGenerator->next();
 
-        $user = User::createDefaultUser($userName, $password, $email);
+        $messageBus->dispatch(new CreateUserCommand("1", $uuid, $userName, $email, $password));
 
-        try {
-            $this->userManager->updateUser($user);
-        } catch (UniqueConstraintViolationException $e) {
-            return new JsonResponse(["error" => $e->getMessage()], 500);
-        }
-
-        return new JsonResponse(["success" => $user->getUsername(). " has been registered!"], 200);
+        return new JsonResponse([], 201);
     }
 
     /**

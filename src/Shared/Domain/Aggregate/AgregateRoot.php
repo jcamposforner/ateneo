@@ -6,7 +6,7 @@ namespace App\Shared\Domain\Aggregate;
 
 use App\Shared\Domain\Bus\Event\DomainEvent;
 
-abstract class AgregateRoot
+trait AgregateRoot
 {
     /** @var DomainEvent[] */
     private $domainEvents = [];
