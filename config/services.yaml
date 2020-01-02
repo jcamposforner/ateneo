@@ -14,3 +14,23 @@ services:
     App\UI\Http\Rest\Controller\:
         resource: '../src/UI/Http/Rest/Controller'
         tags: ['controller.service_arguments']
+
+fos_user:
+    db_driver:      orm
+    firewall_name:  main
+    user_class:     App\Backoffice\User\Domain\User
+    from_email:
+        address: "no-reply@joeymasip.com"
+        sender_name: "Joey"
+    registration:
+        confirmation:
+            enabled: true
+            template:   FOSUserBundle:Registration:email.txt.twig
+            from_email:
+                address:        "no-reply@joeymasip.com"
+                sender_name:    "No Reply Registration"
+    service:
+        mailer: fos_user.mailer.twig_swift
+    resetting:
+        email:
+            template:   FOSUserBundle:Resetting:email.txt.twig

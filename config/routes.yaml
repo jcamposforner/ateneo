@@ -1,2 +1,3 @@
-home:
+api_login_check:
+    prefix: /api/auth
     resource: routes/home.yaml

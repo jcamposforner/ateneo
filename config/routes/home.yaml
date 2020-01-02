@@ -1,5 +1,7 @@
-home_page:
-  path: /{id}
-  controller: App\UI\Http\Rest\Controller\HomeController
-  methods: [GET]
-  defaults: { id: 1 }
+api_register:
+  path: /register
+  controller: App\UI\Http\Rest\Controller\RegisterController
+  methods: [POST]
+api_login:
+  path: /login
+  methods: [POST]
