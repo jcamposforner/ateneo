@@ -15,10 +15,6 @@ services:
         resource: '../src/UI/Http/Rest/Controller'
         tags: ['controller.service_arguments']
 
-    App\Backoffice\User\Application\Command\CreateUserCommand:
-        lazy: true
-        autowire: false
-
     App\Shared\Domain\Bus\ClassNameResolver: ~
     App\Shared\Domain\Bus\ClassNameResolverInterface: '@App\Shared\Domain\Bus\ClassNameResolver'
 
