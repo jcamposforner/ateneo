@@ -2,9 +2,7 @@
 
 namespace App;
 
-use App\Shared\Domain\Bus\Query\Query;
 use App\Shared\Domain\Bus\Query\QueryHandler;
-use App\UI\Http\Rest\Command\QueryInterface;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\Config\Resource\FileResource;
