@@ -15,6 +15,19 @@ services:
         resource: '../src/UI/Http/Rest/Controller'
         tags: ['controller.service_arguments']
 
+    App\Backoffice\User\Application\Command\CreateUserCommand:
+        lazy: true
+        autowire: false
+
+    App\Shared\Domain\Bus\ClassNameResolver: ~
+    App\Shared\Domain\Bus\ClassNameResolverInterface: '@App\Shared\Domain\Bus\ClassNameResolver'
+
+    App\Shared\Infrastructure\Bus\Query\SymfonySyncQueryBus:
+        arguments: [!tagged app.query]
+        lazy: true
+
+    App\Shared\Domain\Bus\Query\QueryBus: '@App\Shared\Infrastructure\Bus\Query\SymfonySyncQueryBus'
+
 fos_user:
     db_driver:      orm
     firewall_name:  main

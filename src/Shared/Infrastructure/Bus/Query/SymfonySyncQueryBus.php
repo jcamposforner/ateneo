@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Shared\Infrastructure\Bus\Query;
 
+use App\Shared\Domain\Bus\ClassNameResolver;
+use App\Shared\Domain\Bus\ClassNameResolverInterface;
 use App\Shared\Domain\Bus\Query\Query;
 use App\Shared\Domain\Bus\Query\QueryBus;
 use App\Shared\Domain\Bus\Query\QueryResponse;
@@ -13,18 +15,18 @@ use Symfony\Component\Messenger\MessageBus;
 use Symfony\Component\Messenger\Middleware\HandleMessageMiddleware;
 use Symfony\Component\Messenger\Stamp\HandledStamp;
 
-final class SymfonySyncQueryBus implements QueryBus
+class SymfonySyncQueryBus implements QueryBus
 {
+    /** @var MessageBus  */
     private $bus;
 
     public function __construct(iterable $queryHandlers)
     {
+        dd(ClassNameResolver::forCallables($queryHandlers));
         $this->bus = new MessageBus(
             [
                 new HandleMessageMiddleware(
-                    new HandlersLocator([
-                        // TODO TAKE CLASSES THAT IMPLEMENTS QUERY
-                    ])
+                    new HandlersLocator(ClassNameResolver::forCallables($queryHandlers))
                 ),
             ]
         );

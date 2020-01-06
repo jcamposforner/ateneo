@@ -102,6 +102,9 @@
             "ref": "80acc9223a205cbf5d9828fd616c82a374d281dd"
         }
     },
+    "lambdish/phunctional": {
+        "version": "v2.0.0"
+    },
     "lcobucci/jwt": {
         "version": "3.3.1"
     },
@@ -325,6 +328,9 @@
         "version": "v4.4.2"
     },
     "symfony/property-info": {
+        "version": "v4.4.2"
+    },
+    "symfony/proxy-manager-bridge": {
         "version": "v4.4.2"
     },
     "symfony/routing": {

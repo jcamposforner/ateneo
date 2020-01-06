@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "69672606b83fb55d2fffcc7a1c4cf87b",
+    "content-hash": "fdc11424148dcd7669d5c1c16aff6f73",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1439,6 +1439,61 @@
                 "oauth2"
             ],
             "time": "2019-11-25T14:34:49+00:00"
+        },
+        {
+            "name": "lambdish/phunctional",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Lambdish/phunctional.git",
+                "reference": "d21bf670ef4e1bd5ba7fc94b6cd2ae30053d21b4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Lambdish/phunctional/zipball/d21bf670ef4e1bd5ba7fc94b6cd2ae30053d21b4",
+                "reference": "d21bf670ef4e1bd5ba7fc94b6cd2ae30053d21b4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^0.11.16",
+                "phpunit/phpunit": "^8.4"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/_bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eloi Poch",
+                    "email": "eloi.poch@gmail.com"
+                },
+                {
+                    "name": "Jorge Ávila",
+                    "email": "avilacardenosa@gmail.com"
+                },
+                {
+                    "name": "Rafa Gómez",
+                    "email": "rgomezcasas@gmail.com"
+                }
+            ],
+            "description": "λ PHP functional library",
+            "keywords": [
+                "functional",
+                "generator",
+                "lambda",
+                "library",
+                "php"
+            ],
+            "time": "2019-12-08T23:46:38+00:00"
         },
         {
             "name": "lcobucci/jwt",
@@ -4183,6 +4238,63 @@
                 "validator"
             ],
             "time": "2019-11-05T16:11:08+00:00"
+        },
+        {
+            "name": "symfony/proxy-manager-bridge",
+            "version": "v4.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/proxy-manager-bridge.git",
+                "reference": "9da5781e8fe48396eeacc463ef050205ea6ed2cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/proxy-manager-bridge/zipball/9da5781e8fe48396eeacc463ef050205ea6ed2cb",
+                "reference": "9da5781e8fe48396eeacc463ef050205ea6ed2cb",
+                "shasum": ""
+            },
+            "require": {
+                "ocramius/proxy-manager": "~2.1",
+                "php": "^7.1.3",
+                "symfony/dependency-injection": "^4.0|^5.0"
+            },
+            "conflict": {
+                "zendframework/zend-eventmanager": "2.6.0"
+            },
+            "require-dev": {
+                "symfony/config": "^3.4|^4.0|^5.0"
+            },
+            "type": "symfony-bridge",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Bridge\\ProxyManager\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony ProxyManager Bridge",
+            "homepage": "https://symfony.com",
+            "time": "2019-12-19T15:57:49+00:00"
         },
         {
             "name": "symfony/routing",

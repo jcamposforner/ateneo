@@ -6,10 +6,10 @@ namespace App\Backoffice\User\Application\Command;
 
 use App\Backoffice\User\Domain\User;
 use App\Shared\Domain\Bus\Command\CommandHandler;
+use App\Shared\Domain\Bus\Query\QueryHandler;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
-final class CreateUserCommandHandler implements CommandHandler, MessageHandlerInterface
+final class CreateUserCommandHandler implements QueryHandler
 {
     /**
      * @var EntityManagerInterface

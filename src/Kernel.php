@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Shared\Domain\Bus\Query\Query;
+use App\Shared\Domain\Bus\Query\QueryHandler;
 use App\UI\Http\Rest\Command\QueryInterface;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
@@ -56,6 +57,6 @@ class Kernel extends BaseKernel
 
     protected function build(ContainerBuilder $container)
     {
-        $container->registerForAutoconfiguration(Query::class)->addTag('app.query');
+        $container->registerForAutoconfiguration(QueryHandler::class)->addTag('app.query');
     }
 }

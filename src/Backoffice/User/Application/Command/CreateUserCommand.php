@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace App\Backoffice\User\Application\Command;
 
 use App\Shared\Domain\Bus\Command\Command;
+use App\Shared\Domain\Bus\Query\Query;
 
-final class CreateUserCommand implements Command
+class CreateUserCommand implements Query
 {
     /**
      * @var string
