@@ -22,7 +22,6 @@ class SymfonySyncQueryBus implements QueryBus
 
     public function __construct(iterable $queryHandlers)
     {
-        dd(ClassNameResolver::forCallables($queryHandlers));
         $this->bus = new MessageBus(
             [
                 new HandleMessageMiddleware(
