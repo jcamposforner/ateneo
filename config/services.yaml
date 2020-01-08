@@ -1,6 +1,15 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    rabbitmq_connection_parameters:
+        host: '%env(RABBITMQ_HOST)%'
+        port: '%env(RABBITMQ_PORT)%'
+        vhost: '/'
+        login: 'guest'
+        password: 'guest'
+        read_timeout: 60
+        write_timeout: 5
+        connect_timeout: 1
 
 services:
     _defaults:
@@ -23,6 +32,10 @@ services:
         lazy: true
 
     App\Shared\Domain\Bus\Query\QueryBus: '@App\Shared\Infrastructure\Bus\Query\SymfonySyncQueryBus'
+
+    App\Shared\Infrastructure\RabbitMQ\RabbitMQConnection:
+        arguments:
+            - '%rabbitmq_connection_parameters%'
 
 fos_user:
     db_driver:      orm
